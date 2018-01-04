@@ -46,8 +46,14 @@ static void sl811_write (__u8 index, __u8 data)
 {
 	*(volatile unsigned char *) (SL811_ADR) = index;
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 	*(volatile unsigned char *) (SL811_DAT) = data;
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 }
 
 static __u8 sl811_read (__u8 index)
@@ -56,8 +62,14 @@ static __u8 sl811_read (__u8 index)
 
 	*(volatile unsigned char *) (SL811_ADR) = index;
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 	data = *(volatile unsigned char *) (SL811_DAT);
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 	return (data);
 }
 
@@ -68,9 +80,15 @@ static void inline sl811_read_buf(__u8 offset, __u8 *buf, __u8 size)
 {
 	*(volatile unsigned char *) (SL811_ADR) = offset;
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 	while (size--) {
 		*buf++ = *(volatile unsigned char *) (SL811_DAT);
 		EIEIO;
+        { __asm__ __volatile__("nop"); }
+        { __asm__ __volatile__("nop"); }
+        { __asm__ __volatile__("nop"); }
 	}
 }
 
@@ -81,9 +99,15 @@ static void inline sl811_write_buf(__u8 offset, __u8 *buf, __u8 size)
 {
 	*(volatile unsigned char *) (SL811_ADR) = offset;
 	EIEIO;
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
+    { __asm__ __volatile__("nop"); }
 	while (size--) {
 		*(volatile unsigned char *) (SL811_DAT) = *buf++;
 		EIEIO;
+        { __asm__ __volatile__("nop"); }
+        { __asm__ __volatile__("nop"); }
+        { __asm__ __volatile__("nop"); }
 	}
 }
 

@@ -59,18 +59,6 @@
  */
 #define CONFIG_TIMESTAMP	/* Print image info with timestamp */
 
-/* Ethernet */
-#define CONFIG_DRIVER_DM9000
-#define CONFIG_DM9000_BASE      0xbc020100
-#define DM9000_IO           CONFIG_DM9000_BASE
-#define DM9000_DATA         (CONFIG_DM9000_BASE + 4)
-#define CONFIG_DM9000_USE_16BIT
-#define CONFIG_DM9000_NO_SROM
-#define CONFIG_NET_RETRY_COUNT      20
-#define CONFIG_RESET_PHY_R
-
-// #define CONFIG_DM9000_DEBUG
-
 /* USB */
 #define CONFIG_USB_SL811HS
 #define SL811_ADR             (0xbc020000)

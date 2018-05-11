@@ -550,7 +550,7 @@ CONFIG_PHYLIB=y
 # CONFIG_PHY_TI is not set
 # CONFIG_PHY_VITESSE is not set
 # CONFIG_PHY_XILINX is not set
-# CONFIG_DM_ETH is not set
+CONFIG_DM_ETH=y
 CONFIG_NETDEVICES=y
 # CONFIG_PHY_GIGE is not set
 # CONFIG_E1000 is not set
@@ -561,6 +561,7 @@ CONFIG_NETDEVICES=y
 # CONFIG_RTL8139 is not set
 # CONFIG_RTL8169 is not set
 # CONFIG_SUN7I_GMAC is not set
+CONFIG_XILINX_EMACLITE=y
 # CONFIG_PCI is not set
 
 #

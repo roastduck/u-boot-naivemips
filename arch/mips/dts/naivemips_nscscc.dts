@@ -22,26 +22,13 @@
 		spi0 = &axi_qspi;
 	};
 
-	uart_dev: serial@1fd03000 {
-		compatible = "ns16550";
-		reg = <0x1fd03000 0x1000>;
-		interrupts = <4 0>;
-		reg-shift = <2>;
-		clock-frequency = <100000000>;
+	uart_dev: serial@1fd003f8 {
+		compatible = "naivemips-uart";
+		reg = <0x1fd003f8 0x8>;
+
+		clock-frequency = <25000000>;
 	};
 	axi_qspi: spi@1e000000 {
-        #address-cells = <1>;
-        #size-cells = <0>;
-		compatible = "xlnx,xps-spi-2.00.a";
-		reg = <0x1e000000 0x1000>;
-		fifo-size = <256>;
-		xlnx,spi-mode = <2>; //quad spi mode
-
-        spi-flash@0 {
-            compatible = "jedec,spi-nor";
-            reg = <0>; /* Chip select 0 */
-            spi-max-frequency = <30000000>;
-        };
 	};
 	axi_ethernetlite: ethernet@1c030000 {
 		compatible = "xlnx,xps-ethernetlite-1.00.a";
